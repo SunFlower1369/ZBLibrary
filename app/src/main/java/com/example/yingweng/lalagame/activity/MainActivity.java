@@ -1,12 +1,10 @@
 package com.example.yingweng.lalagame.activity;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.yingweng.lalagame.BlankFragment;
 import com.example.yingweng.lalagame.R;
+import com.example.yingweng.lalagame.adapter.MyFragmentPageAdapter;
 import com.example.yingweng.lalagame.fragment.NewsFragment;
 
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(BlankFragment.newInstance("视频"));
         mFragments.add(BlankFragment.newInstance("我"));
         // init view pager
-        mAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragments);
+        mAdapter = new MyFragmentPageAdapter(getSupportFragmentManager(), mFragments);
         viewPager.setAdapter(mAdapter);
 
     }
@@ -146,24 +145,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // 定义适配器
-    private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
-        private List<Fragment> mList;
-
-        public MyFragmentPagerAdapter(FragmentManager fm, List<Fragment> list) {
-            super(fm);
-            this.mList = list;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return this.mList == null ? null : this.mList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return this.mList == null ? 0 : this.mList.size();
-        }
-    }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="230dp">
+<ImageView
+    android:id="@+id/newsItemIamge"
+    android:src="@color/homeBlue"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+    <TextView
+
+        android:id="@+id/newsItemTitle"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:textColor="@color/white"
+        android:text="标题"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/newsItemdescribe"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:text="这里是米哦按排水咖啡撒九分裤萨法飞"
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
