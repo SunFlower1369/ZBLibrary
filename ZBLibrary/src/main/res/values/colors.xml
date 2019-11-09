@@ -61,4 +61,5 @@
     <color name="btn_red_normal">#ff3b3b</color>
     <color name="btn_red_pressed">#dd0000</color>
 
+    <color name="banner_color_1">#86d6d2d2</color>
 </resources>

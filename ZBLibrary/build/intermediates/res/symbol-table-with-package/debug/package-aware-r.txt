@@ -468,6 +468,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color banner_color_1
 color black
 color black_slight
 color black_to_white

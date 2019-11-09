@@ -16,16 +16,19 @@ import android.widget.TextView;
 
 import com.example.yingweng.lalagame.R;
 import com.example.yingweng.lalagame.adapter.MyFragmentPageAdapter;
+import com.example.yingweng.lalagame.util.SwithcFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NewsFragment extends Fragment implements View.OnClickListener {
+    private SwithcFragment switchFragment;
     private View view;
     private TextView latestNewsText;
     private TextView latestHotText;
     private ViewPager mviewPager;
-    // 添加碎片
+    private FragmentManager fragmentManager;
+    // 储存碎片
     private List<Fragment> mFragments;
     private FragmentPagerAdapter mAdapter;
 
@@ -37,42 +40,39 @@ public class NewsFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_news,container,false);
+        view = inflater.inflate(R.layout.fragment_news, container, false);
         initView();
         initEvent();
         return view;
     }
-
-    public void initView(){
+    public void initView() {
         latestNewsText = view.findViewById(R.id.latestNewsText);
         latestHotText = view.findViewById(R.id.latestHotText);
         // 通过fragmentManager，替换布局文件中的FrameLayout
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.replace_frameLayout,new NewsListFragment());
-        fragmentTransaction.commit();
-
-
-        // 添加碎片
-//        mFragments = new ArrayList<>();
-//        // 添加游戏新闻列表
-//        mFragments.add(new NewsListFragment());
-        // 设置适配器
-//        mAdapter = new MyFragmentPageAdapter(getChildFragmentManager(), mFragments);
-//        mviewPager.setAdapter(mAdapter);
+        fragmentManager = getChildFragmentManager();
+        // 切换fragment，用于切换最新页面中的最新资讯和最近热门
+        switchFragment = new SwithcFragment(R.id.replace_frameLayout,new NewsListFragment(),fragmentManager);
+        switchFragment.commit();
     }
-
-    public void  initEvent(){
+    public void initEvent() {
         latestNewsText.setOnClickListener(this);
         latestHotText.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
-        if(v.getId() == latestNewsText.getId()){
-            Log.d("YESLALA", "点击阿双方均奥斯卡荆防颗粒阿双方各卡洛: ");
-        }else{
-            Log.d("YESLALA", "点击阿双方均奥斯卡荆防颗粒阿双方各卡洛: ");
+        if (v.getId() == latestNewsText.getId()) {
+            switchFragment = new SwithcFragment(R.id.replace_frameLayout,new NewsListFragment(),fragmentManager);
+            switchFragment.commit();
+        } else {
+            switchFragment = new SwithcFragment(R.id.replace_frameLayout,new  NewsHotFragment(),fragmentManager);
+            switchFragment.commit();
         }
     }
+
+    // 用于切换替换fragment
+//    public void switchFragment(int layoutId, Fragment fragment) {
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(layoutId, fragment);
+//        fragmentTransaction.commit();
+//    }
 }

@@ -16,19 +16,20 @@
             android:layout_centerInParent="true"
             android:background="@drawable/top_border_raduis">
             <TextView
+                android:textColor="@color/news_top_selector"
                 android:id="@+id/latestNewsText"
                 android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="最新咨询"
-                android:textColor="@color/black" />
+                 />
             <TextView
                 android:id="@+id/latestHotText"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="最近热门"
-                android:textColor="@color/black" />
+                android:textColor="@color/news_top_selector" />
         </LinearLayout>
 
 

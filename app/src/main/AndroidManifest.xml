@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yingweng.lalagame">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -23,7 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.NewsItemView" />
-        <activity android:name=".view.UserView"></activity>
+        <activity android:name=".view.UserView" />
+        <activity android:name=".activity.NewsDetailsActivity"></activity>
     </application>
 
 </manifest>

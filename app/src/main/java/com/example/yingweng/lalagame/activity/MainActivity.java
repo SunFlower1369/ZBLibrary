@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.yingweng.lalagame.BlankFragment;
 import com.example.yingweng.lalagame.R;
 import com.example.yingweng.lalagame.adapter.MyFragmentPageAdapter;
+import com.example.yingweng.lalagame.fragment.HomeFragment;
 import com.example.yingweng.lalagame.fragment.NewsFragment;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
 
         mFragments = new ArrayList<>();
-        mFragments.add(BlankFragment.newInstance("主页"));
+        mFragments.add(new HomeFragment());
         mFragments.add(new NewsFragment());
         mFragments.add(BlankFragment.newInstance("视频"));
         mFragments.add(BlankFragment.newInstance("我"));
@@ -144,6 +145,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

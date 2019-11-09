@@ -1,6 +1,10 @@
 package com.example.yingweng.lalagame.model;
 
-public class News {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class News implements Serializable {
     private String imageUrl;
     private String newsTitle;
     private String newsDescrpotion;
@@ -42,5 +46,10 @@ public class News {
 
     public void setNewsDescrpotion(String newsDescrpotion) {
         this.newsDescrpotion = newsDescrpotion;
+    }
+
+    @Override
+    public String toString() {
+        return imageUrl + "*****" + newsTitle + "******" + newsDescrpotion;
     }
 }
